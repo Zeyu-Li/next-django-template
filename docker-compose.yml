@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+    backend_db:
+    image: 'postgres:alpine'
+    environment:
+        - POSTGRES_USER={{project_name}}
+        - POSTGRES_PASSWORD=password
+        - POSTGRES_DB={{project_name}}
+    ports:
+        - '5432'
+    volumes:
+        - dbdata:/var/lib/postgresql/data:delegated
+
+    mailhog:
+        image: mailhog/mailhog:latest
+        ports:
+            - '1025:1025' # smtp server
+            - '8025:8025' # web ui
+
+volumes:
+    backend_db:
+    kb_db:
