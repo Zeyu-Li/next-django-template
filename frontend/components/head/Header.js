@@ -26,7 +26,7 @@ const Header = () => {
       <meta property="og:url" content={CONSTANTS.DEFAULT_BASE_URL} />
       <meta
         property="og:image"
-        content="https://antarcticsolutions.ca/preview.png"
+        content={CONSTANTS.DEFAULT_PREVIEW_IMG}
       />
 
       <meta property="twitter:card" content="summary_large_image" />
@@ -41,18 +41,6 @@ const Header = () => {
         content={CONSTANTS.DEFAULT_PREVIEW_IMG}
       />
       <link rel="icon" href="/favicon.ico" />
-
-      {/* font files */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="true"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
-        rel="stylesheet"
-      />
 
       {/* Google Analytics */}
       {CONSTANTS.DEFAULT_GOOGLE_ANALYTICS ? (
