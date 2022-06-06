@@ -1,9 +1,5 @@
 // Abstracts
-@import 'abstracts/variables.scss'; // keep variables (which includes colours) first
 @import 'abstracts/fonts.scss';
-@import 'abstracts/functions.scss';
-@import 'abstracts/mixins.scss';
-@import 'abstracts/placeholders.scss';
 
 // Base
 @import 'base/base.scss';
