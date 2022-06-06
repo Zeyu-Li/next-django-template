@@ -1,7 +1,11 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+// Abstracts
+@import 'abstracts/variables.scss'; // keep variables (which includes colours) first
+@import 'abstracts/fonts.scss';
+@import 'abstracts/functions.scss';
+@import 'abstracts/mixins.scss';
+@import 'abstracts/placeholders.scss';
+
+// Base
+@import 'base/base.scss';
+@import 'base/reset.scss';
+@import 'base/typography.scss';

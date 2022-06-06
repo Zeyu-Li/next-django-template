@@ -1,14 +1,12 @@
 import Link from 'next/link'
-import HeroAside from '../components/HeroAside'
-import { Header } from '../components/Header'
-import Footer from '../components/Footer'
-import Headers from '../components/Headers'
 
 const Custom404 = () => {
   return (
     <>
-      <Header />
-      <noscript>You need to enable JavaScript to run this app.</noscript>
+      <h1>Page not found ¯\(°_o)/¯</h1>
+      <Link href={'/'}>
+        <button>Back to Home</button>
+      </Link>
     </>
   )
 }
