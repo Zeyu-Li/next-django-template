@@ -15,6 +15,10 @@ Boilerplate for a Next.js Django app
 - next
 - cypress
 
+### Optional
+
+- pre-commit
+
 ## Frontend
 
 Next.js app with BEM SCSS using JS (TS is overkill for frontend and unit tests are meaningless till at least MVP)
