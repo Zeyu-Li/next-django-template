@@ -1,6 +1,7 @@
 init: hosts env install up
 
-hosts: echo "127.0.0.1       mail.next-django-template.test api.next-django-template.test" | sudo tee -a /etc/hosts
+hosts: 
+	echo "127.0.0.1       mail.next-django-template.test api.next-django-template.test" | sudo tee -a /etc/hosts
 
 # runs container
 up:
