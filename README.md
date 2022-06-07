@@ -12,6 +12,8 @@ Boilerplate for a Next.js Django app
 - Docker
 - Docker-Compose
 - Make
+- next
+- cypress
 
 ## Frontend
 
@@ -24,6 +26,10 @@ Next.js app with BEM SCSS using JS (TS is overkill for frontend and unit tests a
 ### Dependencies
 
 To add dependencies, `cd frontend` and `yarn add <your_package>` OR `make add-<named-of-pakacage>`
+
+### Development
+
+To run development first install dependencies with `make install` then do `make run`
 
 ## Backend
 
@@ -39,9 +45,19 @@ Docker, Docker-compose, Makefiles
 
 To start off do `make init` or do `make up` if you are starting it up again
 
+To bring the services down do `make down`
+
 ## Testing
 
-Unit testing for backend and cypress testing for e2e
+Unit testing for backend and cypress testing for e2e. To run e2e do `make e2e` (unfortunately this does not work on WSL)
+
+## TODOS
+
+Here are a list of things you need to do once you decide to use this template
+
+- change constants in frontend/components/constants/constants for front end defaults
+- change .env.local to your personal settings
+-
 
 ### Support
 

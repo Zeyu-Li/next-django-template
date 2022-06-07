@@ -1,4 +1,4 @@
-init: hosts env up
+init: hosts env install up
 
 hosts: echo "127.0.0.1       mail.next-django-template.test api.next-django-template.test" | sudo tee -a /etc/hosts
 
@@ -13,6 +13,9 @@ down:
 # add frontend library
 add-%:
 	yarn --cwd frontend/ add $*
+
+run:
+	yarn --cwd frontend/ dev
 
 # get docker logs backend
 logs:
@@ -33,6 +36,9 @@ lint:
 # opens e2e tests
 e2e:
 	yarn --cwd frontend/ cypress
+
+install:
+	yarn --cwd frontend/ install
 
 # sets env
 env:
