@@ -1,16 +1,13 @@
 #---- Base python ----
-FROM python:3.9-slim-bullseye as base
+FROM python:3.8-slim as base
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED 1
 
 # Create app directory
 WORKDIR /src
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt 
+COPY ./backend /src
 
-# ---- Copy Files/Build ----
-FROM base
+RUN pip3 install --no-cache-dir -r requirements.txt 
 
-WORKDIR /src
-
-COPY . /src
-
-RUN chmod -R 777 /src
+# ENTRYPOINT ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

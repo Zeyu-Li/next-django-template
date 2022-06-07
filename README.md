@@ -4,6 +4,15 @@
 
 Boilerplate for a Next.js Django app
 
+## Requirements
+
+- nvm
+- node
+- yarn
+- Docker
+- Docker-Compose
+- Make
+
 ## Frontend
 
 Next.js app with BEM SCSS using JS (TS is overkill for frontend and unit tests are meaningless till at least MVP)
@@ -12,17 +21,23 @@ Next.js app with BEM SCSS using JS (TS is overkill for frontend and unit tests a
 
 ---
 
-# Dependencies
+### Dependencies
 
-To add dependencies, `cd frontend` and `yarn add <your_package>`
+To add dependencies, `cd frontend` and `yarn add <your_package>` OR `make add-<named-of-pakacage>`
 
 ## Backend
 
 Django backend with logger, email, unit tests
 
+### Migrations
+
+If you change or create model entities, you will need to generate migrations for the DB. Simply run `make migrations` or `make migrations name=migration-name app=app-name` for a named migration where app-name will corresponding to the app where the model was changed. If you do not do this, then your entity changes will not be reflected in the database.
+
 ## DevOps
 
 Docker, Docker-compose, Makefiles
+
+To start off do `make init` or do `make up` if you are starting it up again
 
 ## Testing
 
