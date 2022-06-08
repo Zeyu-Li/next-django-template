@@ -57,7 +57,21 @@ Here are a list of things you need to do once you decide to use this template
 
 - change constants in frontend/components/constants/constants for front end defaults
 - change .env.local to your personal settings
--
+- 
+
+## Development Workflow
+
+### Branches
+
+Main should be the production env while dev branch is pre-production. Any other feature or bug can be added as a new branch in the format of project name followed by the ticket number (ie NDT-00401)
+
+### PRs
+
+PRs likewise should have project name followed by the ticket number and optionally include the epic it is a part of. In addition a description should be included
+
+Example: NDT-00401(MVP): Finished frontend as part of the MVP
+
+Where MVP is the current epic
 
 ### Support
 
