@@ -19,6 +19,8 @@ Boilerplate for a Next.js Django app
 
 Next.js app with BEM SCSS using JS (TS is overkill for frontend and unit tests are meaningless till at least MVP)
 
+See [next-django-template.test](http://next-django-template.test/) if you added to /etc/hosts (if you are on windows see Windows)
+
 ![front.png](./front.png)
 
 ---
@@ -33,6 +35,8 @@ To run development first install dependencies with `make install` then do `make 
 
 ## Backend
 
+See [api.next-django-template.test](api.next-django-template.test/) if you added to /etc/hosts (if you are on windows see Windows)
+
 Django backend with logger, email, unit tests
 
 ### Migrations
@@ -41,7 +45,7 @@ If you change or create model entities, you will need to generate migrations for
 
 ## DevOps
 
-Docker, Docker-compose, Makefiles
+Docker, Docker-compose, Makefiles, Traefik for proxy handling
 
 To start off do `make init` or do `make up` if you are starting it up again
 
@@ -57,7 +61,7 @@ Here are a list of things you need to do once you decide to use this template
 
 - change constants in frontend/components/constants/constants for front end defaults
 - change .env.local to your personal settings
-- 
+-
 
 ## Development Workflow
 
