@@ -1,29 +1,31 @@
 FROM node:14 as base
+
 WORKDIR /app
 
 # copy dependencies and install
-COPY package.json .
+COPY frontend/package*.json .
 
-COPY yarn.lock .
-
-ADD packages /app/packages/
+COPY frontend/yarn.lock .
 
 RUN yarn install
 
-WORKDIR /app/packages/frontend
-
-
 FROM base as dev
-EXPOSE 3000
-CMD ["yarn", "run", "start"]
 
-FROM base as int
+COPY frontend/ .
 
 RUN yarn build
 
+FROM base as int
+
+CMD ["mv", "out/" "/var/www/"]
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
+
+# from nginx
 FROM nginx:latest as prod
 
-EXPOSE 80
+EXPOSE 3333
 
-COPY packages/frontend/nginx.conf /etc/nginx/nginx.conf
-COPY --from=int /app/packages/frontend/build/ /var/www/
+COPY frontend/nginx.conf /etc/nginx/nginx.conf

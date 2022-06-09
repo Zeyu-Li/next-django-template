@@ -2,7 +2,7 @@ version: '3.9'
 services:
     backend:
         container_name: backend
-        build: 
+        build:
             dockerfile: backend/Dockerfile
             context: .
         command: python3 manage.py runserver 0.0.0.0:8000
@@ -14,6 +14,34 @@ services:
             - .env.local
         depends_on:
             - db
+
+    frontend:
+        container_name: frontend
+        build:
+            dockerfile: frontend/Dockerfile
+            context: .
+        ports:
+            - '3000:3000'
+            - '3333:3333'
+        volumes:
+            - ./frontend:/src
+
+    traefik:
+        image: traefik:v2.3
+        ports:
+            - 80:80
+            - 8080:8080
+        command:
+            - '--api.insecure=true'
+            - '--providers.docker=true'
+            - '--providers.docker.exposedbydefault=false'
+            - '--entrypoints.web.address=:80'
+            - '--configFile=/traefik.yml'
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./traefik.yml:/traefik.yml
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
 
     db:
         container_name: db

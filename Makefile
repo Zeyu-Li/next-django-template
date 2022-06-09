@@ -3,7 +3,7 @@ init: hosts env install up
 
 # adds proxy aliases
 hosts: 
-	echo "127.0.0.1       mail.next-django-template.test api.next-django-template.test" | sudo tee -a /etc/hosts
+	echo "127.0.0.1       next-django-template.test api.next-django-template.test mail.next-django-template.test" | sudo tee -a /etc/hosts
 
 # runs container
 up:

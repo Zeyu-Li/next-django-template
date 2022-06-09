@@ -1,0 +1,7 @@
+.babelrc
+.next
+README.md
+
+# Artifacts that will be built during image creation.
+build
+node_modules/

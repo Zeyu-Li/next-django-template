@@ -1,0 +1,42 @@
+## STATIC CONFIGURATION
+log:
+    level: INFO
+
+api:
+    insecure: true
+    dashboard: true
+
+entryPoints:
+    web:
+        address: ':80'
+
+providers:
+    docker:
+        watch: true
+        endpoint: 'unix:///var/run/docker.sock'
+    file:
+        filename: 'traefik.yml'
+
+## DYNAMIC CONFIGURATION
+http:
+    routers:
+        local-frontend:
+            rule: 'Host(`next-django-template.test`)'
+            service: local-frontend
+            entryPoints:
+                - web
+        local-backend:
+            rule: 'Host(`api.next-django-template.test`)'
+            service: local-backend
+            entryPoints:
+                - web
+
+    services:
+        local-frontend:
+            loadBalancer:
+                servers:
+                    - url: 'http://host.docker.internal:3000'
+        local-backend:
+            loadBalancer:
+                servers:
+                    - url: 'http://host.docker.internal:8000'
