@@ -35,7 +35,7 @@ To run development first install dependencies with `make install` then do `make 
 
 ## Backend
 
-See [api.next-django-template.test](api.next-django-template.test/) if you added to /etc/hosts (if you are on windows see Windows)
+See [api.next-django-template.test](api.next-django-template.test/) if you added to /etc/hosts (if you are on Windows you may also need to add aliases to C:\Windows\System32\drivers\etc\hosts)
 
 Django backend with logger, email, unit tests
 
