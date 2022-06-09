@@ -1,5 +1,8 @@
 .db
+.next/
+.babelrc
 npm-debug.log
 cypress
 node_modules
 node_modules/
+out/

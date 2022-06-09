@@ -20,11 +20,14 @@ services:
         build:
             dockerfile: frontend/Dockerfile
             context: .
+        restart: always
         ports:
             - '3000:3000'
-            - '3333:3333'
+            # - '3333:3333'
         volumes:
-            - ./frontend:/src
+            - ./frontend:/app
+            - /app/node_modules
+            - /app/.next
 
     traefik:
         image: traefik:v2.3

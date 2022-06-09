@@ -23,8 +23,12 @@ run:
 	yarn --cwd frontend/ dev
 
 # get docker logs backend
-logs:
+logs-b:
 	docker-compose logs -f backend
+
+# get docker logs backend
+logs-f:
+	docker-compose logs -f frontend
 
 # DB migrations
 migration:
@@ -51,6 +55,10 @@ e2e:
 # installs frontend dependencies
 install:
 	yarn --cwd frontend/ install
+
+# will build containers from the ground up
+build:
+	docker-compose up --build
 
 # sets env
 env:

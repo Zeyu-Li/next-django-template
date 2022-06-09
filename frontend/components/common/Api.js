@@ -10,7 +10,7 @@ const getDomain = () => {
   return new URL(CONSTANTS.DEFAULT_BASE_URL).hostname
 }
 
-export const host = `${getProtocol()}//${getDomain()}/`
+export const host = `${getProtocol()}//api.${getDomain()}/`
 
 export const get = (uri) => {
   const headers = {

@@ -35,7 +35,7 @@ http:
         local-frontend:
             loadBalancer:
                 servers:
-                    - url: 'http://host.docker.internal:3333'
+                    - url: 'http://host.docker.internal:3000'
         local-backend:
             loadBalancer:
                 servers:

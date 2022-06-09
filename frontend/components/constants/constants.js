@@ -7,7 +7,7 @@ const CONSTANTS = {
   DEFAULT_DESCRIPTION: DEFAULT_DESCRIPTION,
   DEFAULT_KEYWORDS: ['next', 'boilerplate', 'django'],
   DEFAULT_SITE_NAME: 'Next-Django Template',
-  DEFAULT_BASE_URL: 'http://localhost:3000/',
+  DEFAULT_BASE_URL: 'http://next-django-template.test/',
   DEFAULT_PREVIEW_IMG: '',
   DEFAULT_TWITTER_TITLE: DEFAULT_TITLE,
   DEFAULT_TWITTER_DESCRIPTION: DEFAULT_DESCRIPTION,
