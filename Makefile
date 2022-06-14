@@ -1,5 +1,5 @@
 # inits docker containers and starts up
-init: hosts env install up
+init: hosts env install up createsuperuser
 
 # adds proxy aliases
 hosts: 
@@ -19,7 +19,18 @@ frontend-add:
 
 # add backend library
 backend-add:
+	echo $(package) >> backend/requirements.txt
 	docker-compose exec backend pip3 install $(package)
+
+# add backend app
+add-app:
+	docker-compose exec backend python3 manage.py startapp $(app)
+
+# add backend app
+createsuperuser:
+	docker-compose exec backend python3 manage.py createsuperuser --email=admin@admin.com --noinput
+# DOESN'T WORK -> docker-compose exec backend cat ./utils/create_superuser.py | python3 backend/manage.py shell
+# DOESN'T WORK -> sudo docker exec -it backend python3 manage.py shell < backend/utils/create_superuser.py
 
 # runs frontend locally in dev
 # run:
@@ -35,11 +46,13 @@ logs-f:
 
 # DB migrations
 migration:
-	cd backend && python3 manage.py makemigrations && python3 manage.py migrate
+	docker-compose exec backend python3 manage.py makemigrations
+	docker-compose exec backend python3 manage.py migrate
 
 # DB migrations with a new
 named-migration:
-	cd backend && python3 manage.py makemigrations -n $(name) && python3 manage.py migrate
+	docker-compose exec backend python3 manage.py makemigrations -n $(name)
+	docker-compose exec backend python3 manage.py migrate
 
 # lints frontend
 lint:

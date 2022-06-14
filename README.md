@@ -41,6 +41,10 @@ Django backend with logger, email, unit tests
 
 ---
 
+### Add App
+
+To add an app to the backend, do `make add-app app=<named-of-app>`
+
 ### Dependencies
 
 To add dependencies, do `make backend-add package=<named-of-package>`
@@ -67,7 +71,9 @@ Here are a list of things you need to do once you decide to use this template
 
 - change constants in frontend/components/constants/constants for front end defaults
 - change .env.local to your personal settings
--
+- Change traefik.yml and /etc/hosts for new alias domains
+- Auth with JWT: [django-rest-framework-simplejwt.readthedocs.io/en/latest](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
+- Cron jobs for backend: [gutsytechster.wordpress.com/2019/06/24/how-to-setup-a-cron-job-in-django](https://gutsytechster.wordpress.com/2019/06/24/how-to-setup-a-cron-job-in-django/)
 
 ## Development Workflow
 
