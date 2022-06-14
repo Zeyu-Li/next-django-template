@@ -39,11 +39,20 @@ See [api.next-django-template.test](api.next-django-template.test/) if you added
 
 Django backend with logger, email, unit tests
 
+### Admin
+
+If you want to make a superuser do `make createsuperuser` and that will create an admin with login credentials of the following:
+
+Username: admin
+Password: admin
+
 ---
 
 ### Add App
 
-To add an app to the backend, do `make add-app app=<named-of-app>`
+To add an app to the backend, do `make new-app app=<named-of-app>`
+
+⚠ When starting a new app you might get errors inf they are not installed locally, in which case comment out dependencies in INSTALLED_APPS in `settings.py`
 
 ### Dependencies
 

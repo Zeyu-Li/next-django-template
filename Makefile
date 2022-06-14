@@ -22,11 +22,11 @@ backend-add:
 	echo $(package) >> backend/requirements.txt
 	docker-compose exec backend pip3 install $(package)
 
-# add backend app
-add-app:
-	docker-compose exec backend python3 manage.py startapp $(app)
+# add backend app (if create within docker container, premission issues)
+new-app:
+	cd backend && python3 manage.py startapp $(app)
 
-# add backend app
+# creates superuser
 createsuperuser:
 	docker-compose exec backend python3 manage.py createsuperuser --email=admin@admin.com --noinput
 # DOESN'T WORK -> docker-compose exec backend cat ./utils/create_superuser.py | python3 backend/manage.py shell
@@ -66,7 +66,7 @@ unit:
 
 # opens e2e tests
 e2e:
-	yarn --cwd frontend/ cypress
+	yarn --cwd frontend/ cypress || true
 
 # installs frontend dependencies
 install:
@@ -80,3 +80,9 @@ build:
 env:
 	@test -f .env || cp .env.local .env
 # @cp backend/.env.local backend/.env
+
+# restarts frontend and backend containers
+restart:
+	docker restart backend
+	docker-compose exec backend pip3 install -r requirements.txt
+	docker restart frontend
