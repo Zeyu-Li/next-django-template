@@ -8,19 +8,22 @@ hosts:
 # runs container
 up:
 	docker-compose up -d
-	@echo "To run the backend do \`make run\`"
 
 # brings docker containers down
 down:
 	docker-compose down
 
 # add frontend library
-add-%:
-	yarn --cwd frontend/ add $*
+frontend-add:
+	docker-compose exec frontend yarn add $(package)
+
+# add backend library
+backend-add:
+	docker-compose exec backend pip3 install $(package)
 
 # runs frontend locally in dev
-run:
-	yarn --cwd frontend/ dev
+# run:
+# 	yarn --cwd frontend/ dev
 
 # get docker logs backend
 logs-b:

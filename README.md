@@ -27,7 +27,7 @@ See [next-django-template.test](http://next-django-template.test/) if you added 
 
 ### Dependencies
 
-To add dependencies, `cd frontend` and `yarn add <your_package>` OR `make add-<named-of-pakacage>`
+To add dependencies, do `make frontend-add package=<named-of-package>`
 
 ### Development
 
@@ -38,6 +38,12 @@ To run development first install dependencies with `make install` then do `make 
 See [api.next-django-template.test](api.next-django-template.test/) if you added to /etc/hosts (if you are on Windows you may also need to add aliases to C:\Windows\System32\drivers\etc\hosts)
 
 Django backend with logger, email, unit tests
+
+---
+
+### Dependencies
+
+To add dependencies, do `make backend-add package=<named-of-package>`
 
 ### Migrations
 
