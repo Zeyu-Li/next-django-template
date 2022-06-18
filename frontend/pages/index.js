@@ -10,11 +10,7 @@ const Home = () => {
   useEffect(() => {
     get('healthcheck')
       .then((data) => {
-        if (data.status === 200) {
-          setBackendStatus('healthy')
-        } else {
-          setBackendStatus('unavailable')
-        }
+        setBackendStatus('healthy')
       })
       .catch((e) => {
         const errorMessage = e.message || 'unavailable'

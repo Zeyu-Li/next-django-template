@@ -17,11 +17,15 @@ export const get = (uri) => {
     Authorization: `Bearer ${getAccessToken()}`,
   }
 
-  return axios
-    .get(host + uri, {
-      headers,
-    })
-    .then((r) => r.data)
+  return fetch(host + uri, {
+    method: 'GET',
+    headers,
+  }).then(async (response) => {
+    if (response.ok) {
+      return response.json()
+    }
+    throw new Error((await response.json()).message)
+  })
 }
 
 export const post = (uri, data) => {
