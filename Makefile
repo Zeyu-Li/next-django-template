@@ -9,6 +9,10 @@ hosts:
 up:
 	docker-compose up -d
 
+# runs forced rebuild
+up-b:
+	docker-compose up -d --no-deps --build backend
+
 # brings docker containers down
 down:
 	docker-compose down
@@ -83,6 +87,4 @@ env:
 
 # restarts frontend and backend containers
 restart:
-	docker restart backend
-	docker-compose exec backend pip3 install -r requirements.txt
-	docker restart frontend
+	docker-compose up --build -d
