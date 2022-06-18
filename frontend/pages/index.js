@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     get('healthcheck')
-      .then((data) => {
+      .then(() => {
         setBackendStatus('healthy')
       })
       .catch((e) => {
