@@ -66,7 +66,7 @@ test: unit e2e
 
 # backend unit tests
 unit:
-	python backend/manage.py test backend/ $(ARG) --parallel --keepdb
+	docker-compose exec backend python3 manage.py test . $(ARG) --parallel --keepdb
 
 # opens e2e tests
 e2e:
@@ -88,3 +88,10 @@ env:
 # restarts frontend and backend containers
 restart:
 	docker-compose up --build -d
+
+# make venv for local env (to exit enter `deactivate` in command line)
+venv:
+	python3 -m venv venv
+	source venv/bin/activate || true
+	. venv/bin/activate || true
+	pip3 install -r backend/requirements.txt
