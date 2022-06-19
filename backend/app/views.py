@@ -1,11 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-import logging
-
-logger = logging.getLogger('app')
+from app.logging.logging_service import Logger
 
 # Create your views here.
 @api_view(['GET'])
 def test(request):
-    logger.info("test")
+    Logger().info("test")
     return Response("+1")

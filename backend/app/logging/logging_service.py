@@ -1,2 +1,5 @@
 import logging
-logger = logging.getLogger('app')
+
+def Logger():
+    ''' logger singleton '''
+    return logging.getLogger('app')

@@ -87,6 +87,7 @@ Here are a list of things you need to do once you decide to use this template
 ### Recommendations
 
 - use [djoser](https://djoser.readthedocs.io/en/latest/getting_started.html) for fast django auth
+- set up CI/CD for testing
 
 ## Development Workflow
 
