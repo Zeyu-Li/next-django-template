@@ -46,6 +46,33 @@ DATABASES = {
     "default": config("DATABASE_URL", cast=db_url),
 }
 
+SERVER_EMAIL = "hello@example.com"
+
+# Email
+if (DEBUG):
+    # Email settings for mailhog
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = 'mailhog'
+    EMAIL_PORT = 1025
+else:
+    EMAIL_HOST = "smtp.sendgrid.net"
+    EMAIL_HOST_USER = config("SENDGRID_USERNAME")
+    EMAIL_HOST_PASSWORD = config("SENDGRID_PASSWORD")
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = not DEBUG
+
+# Security
+SECURE_HSTS_PRELOAD = not DEBUG
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_REDIRECT = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SECURE_HSTS_SECONDS = config("SECURE_HSTS_SECONDS", default=3600, cast=int)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = not DEBUG
+
+SECURE_CONTENT_TYPE_NOSNIFF = not DEBUG
+SECURE_BROWSER_XSS_FILTER = not DEBUG
+X_FRAME_OPTIONS = "DENY"
 
 # Application definition
 

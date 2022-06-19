@@ -30,6 +30,11 @@ http:
             service: local-backend
             entryPoints:
                 - web
+        mailhog:
+            rule: 'Host(`mail.next-django-template.test`)'
+            service: mailhog
+            entryPoints:
+                - web
 
     services:
         local-frontend:
@@ -40,3 +45,7 @@ http:
             loadBalancer:
                 servers:
                     - url: 'http://host.docker.internal:8000'
+        mailhog:
+            loadBalancer:
+                servers:
+                    - url: 'http://host.docker.internal:8025'
