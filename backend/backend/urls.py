@@ -20,6 +20,6 @@ from rest_framework import routers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include(router.urls)),
-    path('', include('common.urls')),
+    path('', include('app.urls')),
+    path('healthcheck/', include('common.urls')),
 ]

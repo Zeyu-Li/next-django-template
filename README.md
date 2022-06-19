@@ -84,6 +84,10 @@ Here are a list of things you need to do once you decide to use this template
 - Auth with JWT: [django-rest-framework-simplejwt.readthedocs.io/en/latest](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
 - Cron jobs for backend: [gutsytechster.wordpress.com/2019/06/24/how-to-setup-a-cron-job-in-django](https://gutsytechster.wordpress.com/2019/06/24/how-to-setup-a-cron-job-in-django/)
 
+### Recommendations
+
+- use [djoser](https://djoser.readthedocs.io/en/latest/getting_started.html) for fast django auth
+
 ## Development Workflow
 
 ### Branches

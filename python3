@@ -1,1 +1,0 @@
-OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: exec: "backend/utils/create_superuser.py": stat backend/utils/create_superuser.py: no such file or directory: unknown

@@ -8,7 +8,7 @@ const Home = () => {
   const [backendStatus, setBackendStatus] = useState('Loading...')
 
   useEffect(() => {
-    get('healthcheck')
+    get('healthcheck/status')
       .then(() => {
         setBackendStatus('healthy')
       })

@@ -1,1 +1,0 @@
-- convert local postgress db to docker one
