@@ -39,6 +39,10 @@ See [api.next-django-template.test](api.next-django-template.test/) if you added
 
 Django backend with logger, email, unit tests
 
+### Testing
+
+When testing email use [mail.next-django-template.test](mail.next-django-template.test) to get the mailhog client to catch mail
+
 ### Admin
 
 If you want to make a superuser do `make createsuperuser` and that will create an admin with login credentials of the following:
