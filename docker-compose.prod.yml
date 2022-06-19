@@ -1,0 +1,63 @@
+version: '3.9'
+services:
+    backend:
+        container_name: backend
+        build:
+            dockerfile: backend/production.Dockerfile
+            context: .
+        command: python3 manage.py runserver 0.0.0.0:8000
+        ports:
+            - '8000:8000'
+        volumes:
+            - ./backend:/src
+        env_file:
+            - .env.production
+        depends_on:
+            - db
+
+    frontend:
+        container_name: frontend
+        build:
+            dockerfile: frontend/Dockerfile
+            context: .
+        restart: always
+        ports:
+            - '3000:3000'
+            # - '3333:3333'
+        volumes:
+            - ./frontend:/app
+            - /app/node_modules
+            - /app/.next
+
+    traefik:
+        image: traefik:v2.3
+        ports:
+            - 80:80
+            - 8080:8080
+        command:
+            - '--api.insecure=true'
+            - '--providers.docker=true'
+            - '--providers.docker.exposedbydefault=false'
+            - '--entrypoints.web.address=:80'
+            - '--configFile=/traefik.yml'
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./traefik.yml:/traefik.yml
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+
+    db:
+        container_name: db
+        image: postgres
+        env_file:
+            - .env.production
+
+    mailhog:
+        image: mailhog/mailhog:latest
+        ports:
+            - '1025:1025' # smtp server
+            - '8025:8025' # web ui
+
+volumes:
+    backend_db:
+    kb_db:
