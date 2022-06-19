@@ -10,7 +10,7 @@ Boilerplate for a Next.js Django app
 - node
 - yarn
 - Docker
-- Docker-Compose
+- Docker-compose
 - Make
 - next
 - cypress

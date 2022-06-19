@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debreach',
     "corsheaders",
     'rest_framework',
 
@@ -137,3 +138,28 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers': {
+        'app': {
+            # 'handlers': ['file', 'console'],
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propogate': 'True',
+        },
+    },
+    'handlers': {
+        # 'file': {
+        #     'level': 'INFO',
+        #     'class': 'logging.FileHandler',
+        #     'filename': './debug.log',
+        #     'formatter': 'someFormat',
+        # },
+        'console' :{
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+        }
+    },
+}
