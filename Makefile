@@ -89,6 +89,14 @@ env:
 restart:
 	docker-compose up --build -d
 
+# restarts backend
+restart-b:
+	docker-compose up --build -d backend
+
+# restarts frontend
+restart-f:
+	docker-compose up --build -d frontend
+
 # make venv for local env (to exit enter `deactivate` in command line)
 venv:
 	python3 -m venv venv

@@ -15,23 +15,26 @@ Boilerplate for a Next.js Django app
 - next
 - cypress
 
+### Running Locally
+
+To run development locally from scratch run `make init` then do `make up` if it is not running already. (If you are on Windows, you may also need to add aliases to C:\Windows\System32\drivers\etc\hosts (see `make hosts`)). Now everything should be running on [next-django-template.test](http://next-django-template.test/) if you did the previous steps correctly. To stop the containers do `make down`
+
+### Dependencies
+
+To add frontend dependencies, do `make frontend-add package=<named-of-package>`
+To add backend dependencies, do `make backend-add package=<named-of-package>`
+
+If you add multiple dependencies, rap the space separated list of dependencies in quotes in place of `<named-of-package>`, ie `make frontend-add package='tailwindcss postcss autoprefixer'`
+
 ## Frontend
 
 Next.js app with BEM SCSS using JS (TS is overkill for frontend and unit tests are meaningless till at least MVP)
 
-See [next-django-template.test](http://next-django-template.test/) if you added to /etc/hosts (if you are on windows see Windows)
+See [next-django-template.test](http://next-django-template.test/) if you added to /etc/hosts (if you are on Windows you may also need to add aliases to C:\Windows\System32\drivers\etc\hosts)
 
 ![front.png](./front.png)
 
 ---
-
-### Dependencies
-
-To add dependencies, do `make frontend-add package=<named-of-package>`
-
-### Development
-
-To run development first install dependencies with `make install` then do `make run`
 
 ## Backend
 
@@ -57,10 +60,6 @@ Password: admin
 To add an app to the backend, do `make new-app app=<named-of-app>`
 
 ⚠ When starting a new app you might get errors inf they are not installed locally, in which case comment out dependencies in INSTALLED_APPS in `settings.py`
-
-### Dependencies
-
-To add dependencies, do `make backend-add package=<named-of-package>`
 
 ### Migrations
 
@@ -106,6 +105,10 @@ PRs likewise should have project name followed by the ticket number and optional
 Example: NDT-00401(MVP): Finished frontend as part of the MVP
 
 Where MVP is the current epic
+
+### Collaboration
+
+When working in a team and a new package is added, the project might require a docker restart so the new package is recognized
 
 ### Support
 

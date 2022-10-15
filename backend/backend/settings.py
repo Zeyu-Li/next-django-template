@@ -32,8 +32,10 @@ DEBUG = bool(os.environ.get("DJANGO_DEBUG", default=True))
 
 ALLOWED_HOSTS = ['*']
 
+# add your new traefik or URL host here
 CORS_ORIGIN_WHITELIST = [
     'http://next-django-template.test',
+    'http://localhost:8000',
     'http://localhost:3000',
     'http://127.0.0.1:3000'
 ]
@@ -43,7 +45,14 @@ CORS_ORIGIN_WHITELIST = [
 
 # get db from the other docker container running psql
 DATABASES = {
-    "default": config("DATABASE_URL", cast=db_url),
+    "default": {
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
+    },
 }
 
 SERVER_EMAIL = "hello@example.com"
