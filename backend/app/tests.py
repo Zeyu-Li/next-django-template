@@ -1,3 +1,5 @@
+from django.contrib.auth import get_user_model
+from django.core import mail
 from django.test import TestCase
 from common.logging.logging_service import Logger
 
@@ -8,6 +10,18 @@ class AppTest(TestCase):
 
     def testLogging(self):
         Logger().info("Log Working")
+
+    def testAnonymousUserCannotTriggerTestEmail(self):
+        response = self.client.get('/')
+        self.assertResponse403(response)
+        self.assertEqual(len(mail.outbox), 0)
+
+    def testAdminCanTriggerTestEmail(self):
+        admin = get_user_model().objects.create_superuser('admin', 'admin@example.com', 'password')
+        self.client.force_login(admin)
+        response = self.client.get('/')
+        self.assertResponse200(response)
+        self.assertEqual(len(mail.outbox), 1)
 
     def assertResponse200(self, response):
         """ Given response has status_code 200 OK"""

@@ -83,6 +83,7 @@ Here are a list of things you need to do once you decide to use this template
 
 - change constants in frontend/components/constants/constants for front end defaults
 - change .env.local to your personal settings
+- for production, copy `.env.production.example` to `.env.production` (git-ignored) and fill in every empty value, including a new `SECRET_KEY` and `ALLOWED_HOSTS`. The backend refuses to start without a `SECRET_KEY`, and `DEBUG` is off unless `DJANGO_DEBUG=True`
 - Change traefik.yml and /etc/hosts for new alias domains
 - Auth with JWT: [django-rest-framework-simplejwt.readthedocs.io/en/latest](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
 - Cron jobs for backend: [gutsytechster.wordpress.com/2019/06/24/how-to-setup-a-cron-job-in-django](https://gutsytechster.wordpress.com/2019/06/24/how-to-setup-a-cron-job-in-django/)
