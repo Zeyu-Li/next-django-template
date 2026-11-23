@@ -1,8 +1,8 @@
-import cookie from 'react-cookies'
+import Cookies from 'js-cookie'
 
 export const getAccessToken = () => {
-  return cookie.load('accessToken')
+  return Cookies.get('accessToken')
 }
 export const setAccessToken = (token) => {
-  return cookie.save('accessToken', token)
+  return Cookies.set('accessToken', token)
 }
